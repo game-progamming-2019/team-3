@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GUI.gd" type="Script" id=1]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 10.6038
+margin_top = 9.2207
+margin_right = 61.6038
+margin_bottom = 23.2207
+text = "Batterys: 0"
+
