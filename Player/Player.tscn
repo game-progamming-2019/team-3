@@ -1,0 +1,79 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Player/Sprites/Idle0.png" type="Texture" id=2]
+[ext_resource path="res://Player/Sprites/Run1.png" type="Texture" id=3]
+[ext_resource path="res://Player/Sprites/Run2.png" type="Texture" id=4]
+[ext_resource path="res://Player/Sprites/Run3.png" type="Texture" id=5]
+[ext_resource path="res://Player/Sprites/Run4.png" type="Texture" id=6]
+[ext_resource path="res://Player/Sprites/Run5.png" type="Texture" id=7]
+[ext_resource path="res://Player/Sprites/Jump4.png" type="Texture" id=8]
+[ext_resource path="res://Player/Sprites/Jump1.png" type="Texture" id=9]
+[ext_resource path="res://Player/Sprites/Jump0.png" type="Texture" id=10]
+[ext_resource path="res://Player/Sprites/Jump3.png" type="Texture" id=11]
+[ext_resource path="res://World/light_PNG14432.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "fall2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "jump2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "jump1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "fall1",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 14.0
+height = 28.0
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 1 )
+gravity = 300
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 4.06794 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2( 2.1985, 9.36267 )
+scale = Vector2( 2, 2 )
+current = true
+limit_left = 0
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="Flashlight" type="Light2D" parent="."]
+position = Vector2( 14, 17 )
+texture = ExtResource( 12 )
+offset = Vector2( 72.503, 0.114349 )
+texture_scale = 0.2
+shadow_enabled = true
