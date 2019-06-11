@@ -38,4 +38,5 @@ anims/spin = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -2 )
 shape = SubResource( 2 )
+
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]

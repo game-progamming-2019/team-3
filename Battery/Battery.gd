@@ -1,7 +1,6 @@
 extends Area2D
 
 func _ready():
-	$Sprite/AnimationPlayer.play("spin");
 	pass # Replace with function body.
 
 func _on_Coin_body_entered(body):
