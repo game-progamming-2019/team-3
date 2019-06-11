@@ -1,8 +1,8 @@
 extends CanvasModulate
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var start_Color = Color(1.0, 1.0, 1.0)
+var end_Color = Color (0.2, 0.2, 0.2)
+var cache
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,9 +10,11 @@ func _ready():
 	
 
 func light():
-	$Tween.interpolate_property(self, "color", Color(1.0, 1.0, 1.0), Color(0.2, 0.2, 0.2), 5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property(self, "color", start_Color, end_Color, 5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Timer_timeout():
+	cache = start_Color
+	start_Color = end_Color
+	end_Color = cache
+	light()
