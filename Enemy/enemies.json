@@ -1,0 +1,40 @@
+{
+	"enemies": [
+		{
+			"ID": "0",
+			"Name" : "Bat",
+			"Movement" : "sine",
+			"Texture": [
+				 { 
+					"File": "rat_spritesheet.png",
+					"region": [
+						{
+							"x": 0,
+							"y": 192,
+							"w": 32,
+							"h": 32
+						}
+					]
+				 }
+			]
+		},
+		{
+			"ID": "1",
+			"Name" : "Rat",
+			"Movement" : "linear",
+			"Texture": [
+				 { 
+					"File": "rat_spritesheet.png",
+					"region": [
+						{
+							"x": 0,
+							"y": 0,
+							"w": 32,
+							"h": 32
+						}
+					]
+				 }
+			]
+		}
+	]
+}

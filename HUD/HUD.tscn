@@ -11,7 +11,7 @@ margin_left = 544.0
 margin_top = 18.0
 margin_right = 587.0
 margin_bottom = 32.0
-text = "Coins: "
+text = "Batterys:"
 
 [node name="CoinCount" type="Label" parent="Control"]
 margin_left = 592.0
@@ -20,4 +20,3 @@ margin_right = 632.0
 margin_bottom = 32.0
 text = "0"
 align = 2
-
