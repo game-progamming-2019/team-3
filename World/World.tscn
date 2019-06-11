@@ -152,8 +152,6 @@ idle_delay = 0.3
 position = Vector2( 3169.16, 269.775 )
 move_to = Vector2( 0, -384 )
 idle_delay = 0.0
-<<<<<<< HEAD
-=======
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 191, 117 )
@@ -165,6 +163,5 @@ id = 1
 [node name="Enemy3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1620, -93 )
 id = 1
->>>>>>> enemy
 [connection signal="body_entered" from="DeathPlane" to="GUI" method="_on_DeathPlane_body_entered"]
 [connection signal="body_entered" from="DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
