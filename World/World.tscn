@@ -6,7 +6,7 @@
 [ext_resource path="res://World/Background3.png" type="Texture" id=4]
 [ext_resource path="res://World/Tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Battery/Battery.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Platform/Platform.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -86,53 +86,45 @@ shape = SubResource( 1 )
 position = Vector2( -70, 411.472 )
 shape = SubResource( 2 )
 
-[node name="Coins" type="Node" parent="."]
+[node name="Batteries" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Coin" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 587, 18 )
+[node name="Battery" parent="Batteries" instance=ExtResource( 7 )]
+position = Vector2( 174.534, 168.188 )
 
-[node name="Coin2" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 176, 160.389 )
+[node name="Battery2" parent="Batteries" instance=ExtResource( 7 )]
+position = Vector2( 715.59, 268.148 )
 
-[node name="Coin3" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 358, 256 )
+[node name="Battery3" parent="Batteries" instance=ExtResource( 7 )]
+position = Vector2( 1591.44, 158.668 )
 
-[node name="Coin4" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 422, 255 )
+[node name="Battery4" parent="Batteries" instance=ExtResource( 7 )]
+position = Vector2( 1540.66, -55.5336 )
 
-[node name="Coin5" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 486, 255 )
+[node name="Battery5" parent="Batteries" instance=ExtResource( 7 )]
+position = Vector2( 2334, 166.601 )
 
-[node name="Coin6" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 550, 253 )
+[node name="Battery6" parent="Batteries" instance=ExtResource( 7 )]
+position = Vector2( 2472.04, -58.7069 )
 
-[node name="Coin7" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 656, 18 )
+[node name="Battery7" parent="Batteries" instance=ExtResource( 7 )]
+position = Vector2( 2768.75, 272.908 )
 
-[node name="Coin8" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 720, 18 )
+[node name="Battery8" parent="Batteries" instance=ExtResource( 7 )]
+position = Vector2( 2535.51, 417.296 )
 
-[node name="Coin9" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 784, 18 )
+[node name="Battery9" parent="Batteries" instance=ExtResource( 7 )]
+position = Vector2( 3352.64, -157.081 )
 
-[node name="Coin10" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 848, 18 )
-
-[node name="Coin11" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 912, 117.389 )
-
-[node name="Coin12" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 912, 69 )
-
-[node name="Coin13" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 912, 18 )
+[node name="Battery10" parent="Batteries" instance=ExtResource( 7 )]
+position = Vector2( 617.745, 17.0455 )
 
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 368, 304 )
 speed = 2
+move_to = Vector2( 320, 0 )
 idle_delay = 0.3
 
 [node name="Platform2" parent="Platforms" instance=ExtResource( 8 )]
@@ -159,18 +151,5 @@ idle_delay = 0.3
 position = Vector2( 3169.16, 269.775 )
 move_to = Vector2( 0, -384 )
 idle_delay = 0.0
-[connection signal="body_entered" from="DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
 [connection signal="body_entered" from="DeathPlane" to="GUI" method="_on_DeathPlane_body_entered"]
-[connection signal="body_entered" from="Coins/Coin" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin2" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin3" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin4" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin5" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin6" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin7" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin8" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin9" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin10" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin11" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin12" to="GUI" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="Coins/Coin13" to="GUI" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
