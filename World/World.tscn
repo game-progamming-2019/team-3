@@ -22,12 +22,15 @@ extents = Vector2( 10, 100 )
 script = ExtResource( 2 )
 
 [node name="DayNight" type="CanvasModulate" parent="."]
-editor/display_folded = true
 position = Vector2( 946.277, 236 )
 scale = Vector2( 14.2144, 4.0625 )
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="DayNight"]
+
+[node name="Timer" type="Timer" parent="DayNight"]
+wait_time = 30.0
+autostart = true
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 1702.78, -34.2932 )
@@ -120,6 +123,7 @@ position = Vector2( 3352.64, -157.081 )
 position = Vector2( 617.745, 17.0455 )
 
 [node name="Platforms" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Platform" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 368, 304 )
@@ -144,7 +148,7 @@ idle_delay = 0.0
 [node name="Platform5" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 1858.12, -16.6585 )
 speed = 2
-move_to = Vector2( 320, 0 )
+move_to = Vector2( 340, 0 )
 idle_delay = 0.3
 
 [node name="Platform6" parent="Platforms" instance=ExtResource( 8 )]
@@ -153,7 +157,7 @@ move_to = Vector2( 0, -384 )
 idle_delay = 0.0
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 191, 117 )
+position = Vector2( 725.529, -25.6886 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1484, 131 )
@@ -162,8 +166,35 @@ id = 1
 [node name="Enemy3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1620, -93 )
 id = 1
-[connection signal="body_entered" from="DeathPlane" to="GUI" method="_on_DeathPlane_body_entered"]
+
+[node name="Enemy4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 414.648, 207.057 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2040.81, -117.478 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3282.3, -229.304 )
+
+[node name="Enemy7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2049.33, 129.333 )
+id = 1
+
+[node name="Enemy8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2615.16, 388.35 )
+id = 1
+
+[node name="Enemy9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2957.75, 289.643 )
+id = 1
+
+[node name="Enemy10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2930.82, -285.614 )
+id = 1
+[connection signal="timeout" from="DayNight/Timer" to="DayNight" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
+[connection signal="body_entered" from="DeathPlane" to="GUI" method="_on_DeathPlane_body_entered"]
+[connection signal="body_entered" from="Batteries/Battery" to="Player" method="_on_Battery_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery" to="GUI" method="_on_Battery_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery2" to="GUI" method="_on_Battery_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery3" to="GUI" method="_on_Battery_body_entered"]
