@@ -5,5 +5,8 @@ func _ready():
 
 func _on_Coin_body_entered(body):
 	if body.get_name() == "Player":
-		queue_free()
-	pass # Replace with function body.
+		if global.battery_count >= global.battery_max_count:
+			global.battery_count = global.battery_max_count
+		else:
+			global.battery_count += 1
+			queue_free()
