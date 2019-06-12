@@ -12,7 +12,7 @@ var sprite
 func _ready():
 	sprite = get_node("../Sprite")
 	tween = Tween.new()
-	tween.connect("tween_completed",self,"_on_Tween_tween_completed")
+	tween.connect("tween_completed", self, "_on_Tween_tween_completed")
 	add_child(tween)
 	_start_tween()
 
@@ -26,3 +26,11 @@ func _on_Tween_tween_completed(object, key):
 	direction *= -1
 	sprite.flip_h = !sprite.flip_h
 	_start_tween()
+	
+func freeze():
+	tween.set_active(false)
+	pass
+	
+func unfreeze():
+	tween.set_active(true)
+	pass

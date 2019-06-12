@@ -11,17 +11,21 @@ export var speed = 100
 export var direction : Vector2 = Vector2(1,0)
 
 var json
+var movement
 
 onready var collision = $Collision
 onready var sprite = $Sprite
+onready var timer = $Timer
+onready var animPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var file = File.new()
 	file.open("res://Enemy/enemies.json",file.READ)
 	json = parse_json(file.get_as_text())
+	get_node("/root/World/DayNight").connect("_freeze_enemies", self, "freeze")
+	get_node("/root/World/DayNight").connect("_unfreeze_enemies", self, "unfreeze")
 	createEnemy()
-
 
 func createEnemy():
 	sprite.flip_h = true
@@ -38,11 +42,23 @@ func createEnemy():
 	self.scale = Vector2(2, 2)
 	
 	if(json["enemies"][id]["Movement"] == "linear"):
-		add_child(LinearMovement.new())
+		movement = LinearMovement.new()
+		
 	elif(json["enemies"][id]["Movement"] == "sine"):
-		add_child(SineMovement.new())
+		movement = SineMovement.new()
+		
+	add_child(movement)
 		
 	if id == ENEMIES.BAT:
-		$AnimationPlayer.play("bat")
+		animPlayer.play("bat")
 	elif id == ENEMIES.RAT:
-		$AnimationPlayer.play("rat")
+		animPlayer.play("rat")
+
+
+func freeze(timed = false):
+	movement.freeze()
+	animPlayer.stop(false)
+	
+func unfreeze():
+	movement.unfreeze()
+	animPlayer.play()

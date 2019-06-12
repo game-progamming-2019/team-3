@@ -29,7 +29,7 @@ script = ExtResource( 3 )
 [node name="Tween" type="Tween" parent="DayNight"]
 
 [node name="Timer" type="Timer" parent="DayNight"]
-wait_time = 30.0
+wait_time = 10.0
 autostart = true
 
 [node name="Background" type="Sprite" parent="."]
@@ -124,7 +124,6 @@ position = Vector2( 3352.64, -157.081 )
 position = Vector2( 617.745, 17.0455 )
 
 [node name="Platforms" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Platform" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 368, 304 )
@@ -158,6 +157,7 @@ move_to = Vector2( 0, -384 )
 idle_delay = 0.0
 
 [node name="Enemies" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 725.529, -25.6886 )
@@ -194,11 +194,12 @@ id = 1
 [node name="Enemy10" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 2930.82, -285.614 )
 id = 1
+[connection signal="tween_completed" from="DayNight/Tween" to="DayNight" method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="DayNight/Timer" to="DayNight" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="DeathPlane" to="GUI" method="_on_DeathPlane_body_entered"]
 [connection signal="body_entered" from="DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery" to="GUI" method="_on_Battery_body_entered"]
+[connection signal="body_entered" from="DeathPlane" to="GUI" method="_on_DeathPlane_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery" to="Player" method="_on_Battery_body_entered"]
+[connection signal="body_entered" from="Batteries/Battery" to="GUI" method="_on_Battery_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery2" to="GUI" method="_on_Battery_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery3" to="GUI" method="_on_Battery_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery4" to="GUI" method="_on_Battery_body_entered"]

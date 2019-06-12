@@ -1,49 +1,51 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/Sprites/Idle0.png" type="Texture" id=2]
-[ext_resource path="res://Player/Sprites/Run1.png" type="Texture" id=3]
-[ext_resource path="res://Player/Sprites/Run2.png" type="Texture" id=4]
-[ext_resource path="res://Player/Sprites/Run3.png" type="Texture" id=5]
-[ext_resource path="res://Player/Sprites/Run4.png" type="Texture" id=6]
-[ext_resource path="res://Player/Sprites/Run5.png" type="Texture" id=7]
-[ext_resource path="res://Player/Sprites/Jump4.png" type="Texture" id=8]
-[ext_resource path="res://Player/Sprites/Jump1.png" type="Texture" id=9]
-[ext_resource path="res://Player/Sprites/Jump0.png" type="Texture" id=10]
-[ext_resource path="res://Player/Sprites/Jump3.png" type="Texture" id=11]
-[ext_resource path="res://World/light_PNG14432.png" type="Texture" id=12]
+[ext_resource path="res://World/Background3.png" type="Texture" id=2]
+[ext_resource path="res://Player/Sprites/Idle0.png" type="Texture" id=3]
+[ext_resource path="res://Player/Sprites/Jump3.png" type="Texture" id=4]
+[ext_resource path="res://Player/Sprites/Jump0.png" type="Texture" id=5]
+[ext_resource path="res://Player/Sprites/Jump1.png" type="Texture" id=6]
+[ext_resource path="res://Player/Sprites/Jump4.png" type="Texture" id=7]
+[ext_resource path="res://Player/Sprites/Run1.png" type="Texture" id=8]
+[ext_resource path="res://Player/Sprites/Run2.png" type="Texture" id=9]
+[ext_resource path="res://Player/Sprites/Run3.png" type="Texture" id=10]
+[ext_resource path="res://Player/Sprites/Run4.png" type="Texture" id=11]
+[ext_resource path="res://Player/Sprites/Run5.png" type="Texture" id=12]
+[ext_resource path="res://World/light_PNG14432.png" type="Texture" id=13]
+[ext_resource path="res://Player/Area2D.gd" type="Script" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "run",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "fall2",
+"name": "fall1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "jump2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "jump1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "fall1",
+"name": "jump2",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "fall2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -54,13 +56,28 @@ height = 28.0
 script = ExtResource( 1 )
 gravity = 300
 
+[node name="Background3" type="Sprite" parent="."]
+visible = false
+position = Vector2( 110.035, 0.357613 )
+scale = Vector2( 1.64416, 1 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 4.06794 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
@@ -70,10 +87,23 @@ current = true
 limit_left = 0
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Flashlight" type="Light2D" parent="."]
 position = Vector2( 14, 17 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 offset = Vector2( 72.503, 0.114349 )
 texture_scale = 0.2
 shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Lightcone" type="Area2D" parent="Flashlight"]
+script = ExtResource( 14 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flashlight/Lightcone"]
+polygon = PoolVector2Array( 2.56581, -2.18213, 16.381, -6.74598, 90.4697, -21.4817, 135.154, -20.2736, 141.782, -13.104, 145.164, -2.55242, 143.947, 8.67551, 137.803, 18.9906, 94.4473, 22.2721, 16.2458, 7.0522, 2.56581, 2.61155, -0.0723171, 0.00559044 )
+[connection signal="body_entered" from="Flashlight/Lightcone" to="Flashlight/Lightcone" method="_on_Area2D_body_entered"]
