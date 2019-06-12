@@ -91,6 +91,7 @@ position = Vector2( -70, 411.472 )
 shape = SubResource( 2 )
 
 [node name="Batteries" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Battery" parent="Batteries" instance=ExtResource( 7 )]
 position = Vector2( 174.534, 168.188 )
@@ -156,46 +157,48 @@ position = Vector2( 3169.16, 269.775 )
 move_to = Vector2( 0, -384 )
 idle_delay = 0.0
 
-[node name="Enemy" parent="." instance=ExtResource( 9 )]
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 725.529, -25.6886 )
 
-[node name="Enemy2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1484, 131 )
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 1512.29, 161.724 )
 id = 1
 
-[node name="Enemy3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1620, -93 )
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 1629.27, -63.7395 )
 id = 1
 
-[node name="Enemy4" parent="." instance=ExtResource( 9 )]
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 414.648, 207.057 )
 
-[node name="Enemy5" parent="." instance=ExtResource( 9 )]
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 2040.81, -117.478 )
 
-[node name="Enemy6" parent="." instance=ExtResource( 9 )]
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3282.3, -229.304 )
 
-[node name="Enemy7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2049.33, 129.333 )
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 2062.33, 159.333 )
 id = 1
 
-[node name="Enemy8" parent="." instance=ExtResource( 9 )]
+[node name="Enemy8" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 2615.16, 388.35 )
 id = 1
 
-[node name="Enemy9" parent="." instance=ExtResource( 9 )]
+[node name="Enemy9" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 2957.75, 289.643 )
 id = 1
 
-[node name="Enemy10" parent="." instance=ExtResource( 9 )]
+[node name="Enemy10" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 2930.82, -285.614 )
 id = 1
 [connection signal="timeout" from="DayNight/Timer" to="DayNight" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
 [connection signal="body_entered" from="DeathPlane" to="GUI" method="_on_DeathPlane_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery" to="Player" method="_on_Battery_body_entered"]
+[connection signal="body_entered" from="DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery" to="GUI" method="_on_Battery_body_entered"]
+[connection signal="body_entered" from="Batteries/Battery" to="Player" method="_on_Battery_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery2" to="GUI" method="_on_Battery_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery3" to="GUI" method="_on_Battery_body_entered"]
 [connection signal="body_entered" from="Batteries/Battery4" to="GUI" method="_on_Battery_body_entered"]
