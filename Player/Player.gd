@@ -5,6 +5,7 @@ export var gravity = 36
 export var jump_force = 600
 export var max_on_air_time = 0.1
 export var max_air_jump_count = 1
+export var flashlight_uptime = 5
 
 var direction = 0
 var velocity = Vector2()
@@ -16,7 +17,7 @@ onready var flashlight = get_node("Flashlight")
 onready var sprite = get_node("AnimatedSprite")
 
 func _ready():
-	pass
+	$Flashlight_Uptime.wait_time = flashlight_uptime
 	
 func _input(event):
 	if event.is_action_pressed("ui_up") && \
@@ -36,6 +37,12 @@ func get_input():
 		flashlight.position.x = 14
 	else:
 		direction = 0
+		
+	if Input.is_action_just_pressed("ui_down"):
+		if ($Flashlight.enabled == false && global.battery_count > 0):
+			global.battery_count -= 1
+			$Flashlight.enabled = true
+			$Flashlight_Uptime.start()
 
 func _process(delta):
 	get_input()
@@ -81,3 +88,8 @@ func _physics_process(delta):
 func _on_DeathPlane_body_entered(body):
 	position = Vector2(92, 160)
 	pass
+
+
+func _on_Flashlight_Uptime_timeout():
+	$Flashlight.enabled = false
+	$Flashlight_Uptime.wait_time = flashlight_uptime
