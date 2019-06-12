@@ -6,9 +6,11 @@ class_name LinearMovement
 #var distance = 100
 var direction = Vector2(1,0)
 var tween
+var sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sprite = get_node("../Sprite")
 	tween = Tween.new()
 	tween.connect("tween_completed",self,"_on_Tween_tween_completed")
 	add_child(tween)
@@ -22,4 +24,5 @@ func _start_tween():
 
 func _on_Tween_tween_completed(object, key):
 	direction *= -1
+	sprite.flip_h = !sprite.flip_h
 	_start_tween()

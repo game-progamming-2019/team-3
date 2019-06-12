@@ -24,5 +24,3 @@ func _physics_process(delta):
 	
 	parent.position.x += parent.direction.x * parent.speed * delta
 	parent.position.y += sin(ticks * 5) * 2.2
-	
-	pass

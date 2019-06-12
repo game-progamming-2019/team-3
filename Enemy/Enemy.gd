@@ -6,9 +6,9 @@ enum ENEMIES {BAT,RAT}
 
 export(ENEMIES) var id = ENEMIES.BAT
 
-var distance = 100
-var speed = 100
-var direction : Vector2 = Vector2(1,0)
+export var distance = 100
+export var speed = 100
+export var direction : Vector2 = Vector2(1,0)
 
 var json
 
@@ -24,12 +24,13 @@ func _ready():
 
 
 func createEnemy():
+	sprite.flip_h = true
 	sprite.texture = load("res://Enemy/Sprites/" + json["enemies"][id]["Texture"]["File"])
-	sprite.region_enabled  = true
-	sprite.region_rect.position.x = json["enemies"][id]["Texture"]["region"]["x"]
-	sprite.region_rect.position.y = json["enemies"][id]["Texture"]["region"]["y"]
-	sprite.region_rect.size.x = json["enemies"][id]["Texture"]["region"]["w"]
-	sprite.region_rect.size.y = json["enemies"][id]["Texture"]["region"]["h"]
+	#sprite.region_enabled  = true
+	#sprite.region_rect.position.x = json["enemies"][id]["Texture"]["region"]["x"]
+	#prite.region_rect.position.y = json["enemies"][id]["Texture"]["region"]["y"]
+	#sprite.region_rect.size.x = json["enemies"][id]["Texture"]["region"]["w"]
+	#sprite.region_rect.size.y = json["enemies"][id]["Texture"]["region"]["h"]
 
 	collision.shape.extents.x = json["enemies"][id]["Collision"]["size"]["x"]
 	collision.shape.extents.y = json["enemies"][id]["Collision"]["size"]["y"]
@@ -40,3 +41,8 @@ func createEnemy():
 		add_child(LinearMovement.new())
 	elif(json["enemies"][id]["Movement"] == "sine"):
 		add_child(SineMovement.new())
+		
+	if id == ENEMIES.BAT:
+		$AnimationPlayer.play("bat")
+	elif id == ENEMIES.RAT:
+		$AnimationPlayer.play("rat")
