@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+signal _on_flashlight_entered
+signal _on_enemy_touched
+
 export var speed = 200
 export var gravity = 36
 export var jump_force = 600
@@ -85,11 +88,18 @@ func _physics_process(delta):
 	else:
 		on_air_time += delta
 
-func _on_DeathPlane_body_entered(body):
+func respawn():
 	position = Vector2(92, 160)
-	pass
 
+func _on_DeathPlane_body_entered(body):
+	respawn()
 
 func _on_Flashlight_Uptime_timeout():
 	$Flashlight.enabled = false
 	$Flashlight_Uptime.wait_time = flashlight_uptime
+
+func _on_Lightcone_body_entered(body):
+	emit_signal("_on_flashlight_entered", body)
+
+func _on_Area2D_body_entered(body):
+	emit_signal("_on_enemy_touched", body, self)

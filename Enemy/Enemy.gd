@@ -12,6 +12,7 @@ export var direction : Vector2 = Vector2(1,0)
 
 var json
 var movement
+var frozen = false
 
 onready var collision = $Collision
 onready var sprite = $Sprite
@@ -25,6 +26,8 @@ func _ready():
 	json = parse_json(file.get_as_text())
 	get_node("/root/World/DayNight").connect("_freeze_enemies", self, "freeze")
 	get_node("/root/World/DayNight").connect("_unfreeze_enemies", self, "unfreeze")
+	get_node("/root/World/Player").connect("_on_flashlight_entered", self, "flee")
+	get_node("/root/World/Player").connect("_on_enemy_touched", self, "touched")
 	createEnemy()
 
 func createEnemy():
@@ -38,6 +41,8 @@ func createEnemy():
 
 	collision.shape.extents.x = json["enemies"][id]["Collision"]["size"]["x"]
 	collision.shape.extents.y = json["enemies"][id]["Collision"]["size"]["y"]
+	collision.position.x = json["enemies"][id]["Collision"]["position"]["x"]
+	collision.position.y = json["enemies"][id]["Collision"]["position"]["y"]
 	
 	self.scale = Vector2(2, 2)
 	
@@ -54,11 +59,20 @@ func createEnemy():
 	elif id == ENEMIES.RAT:
 		animPlayer.play("rat")
 
-
 func freeze(timed = false):
+	frozen = true
 	movement.freeze()
 	animPlayer.stop(false)
 	
 func unfreeze():
+	frozen = false
 	movement.unfreeze()
 	animPlayer.play()
+	
+func flee(body):
+	if body == self:
+		print(self.name)
+		
+func touched(body, player):
+	if body == self && frozen == false:
+		player.respawn()

@@ -36,6 +36,9 @@ autostart = true
 position = Vector2( 1702.78, -34.2932 )
 scale = Vector2( 29.3038, 8.37507 )
 texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Bot" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
@@ -91,7 +94,6 @@ position = Vector2( -70, 411.472 )
 shape = SubResource( 2 )
 
 [node name="Batteries" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Battery" parent="Batteries" instance=ExtResource( 7 )]
 position = Vector2( 174.534, 168.188 )
@@ -161,49 +163,39 @@ idle_delay = 0.0
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 725.529, -25.6886 )
+id = 0
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 1512.29, 161.724 )
-id = 1
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 1629.27, -63.7395 )
-id = 1
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 9 )]
-position = Vector2( 414.648, 207.057 )
+position = Vector2( 415.422, 207.057 )
+id = 0
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 9 )]
-position = Vector2( 2040.81, -117.478 )
+position = Vector2( 2041.58, -117.478 )
+id = 0
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3282.3, -229.304 )
+id = 0
 
 [node name="Enemy7" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 2062.33, 159.333 )
-id = 1
 
 [node name="Enemy8" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 2767.16, 337.35 )
+id = 0
 
 [node name="Enemy9" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 2964.75, 321.643 )
-id = 1
 
 [node name="Enemy10" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 2939.82, -254.614 )
-id = 1
 [connection signal="tween_completed" from="DayNight/Tween" to="DayNight" method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="DayNight/Timer" to="DayNight" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
 [connection signal="body_entered" from="DeathPlane" to="GUI" method="_on_DeathPlane_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery" to="GUI" method="_on_Battery_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery2" to="GUI" method="_on_Battery_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery3" to="GUI" method="_on_Battery_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery4" to="GUI" method="_on_Battery_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery5" to="GUI" method="_on_Battery_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery6" to="GUI" method="_on_Battery_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery7" to="GUI" method="_on_Battery_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery8" to="GUI" method="_on_Battery_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery9" to="GUI" method="_on_Battery_body_entered"]
-[connection signal="body_entered" from="Batteries/Battery10" to="GUI" method="_on_Battery_body_entered"]
+[connection signal="body_entered" from="DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
