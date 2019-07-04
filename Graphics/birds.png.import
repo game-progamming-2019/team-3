@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/birds.png-81bb62dca77ecb546d930964082b97a3.stex"
+path="res://.import/birds.png-50b280d397b36f25578bd7b680eb1673.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/birds.png"
-dest_files=[ "res://.import/birds.png-81bb62dca77ecb546d930964082b97a3.stex" ]
+source_file="res://Graphics/birds.png"
+dest_files=[ "res://.import/birds.png-50b280d397b36f25578bd7b680eb1673.stex" ]
 
 [params]
 

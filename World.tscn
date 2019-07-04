@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://World/background_1.jpg" type="Texture" id=1]
-[ext_resource path="res://World/slingshot.png" type="Texture" id=2]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=3]
-[ext_resource path="res://World/birds.png" type="Texture" id=4]
-[ext_resource path="res://World/blocks.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/background_1.jpg" type="Texture" id=1]
+[ext_resource path="res://Bird.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Slingshot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Graphics/blocks.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 960, 100 )
@@ -12,22 +11,13 @@ extents = Vector2( 960, 100 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 160, 360 )
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 33.7502
-
-[sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 0, -22, 30, 25, -28, 25 )
-
-[sub_resource type="CircleShape2D" id=5]
-radius = 33.2628
-
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 37.9071, 38.4723 )
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=4]
 radius = 35.491
 
-[sub_resource type="ConvexPolygonShape2D" id=8]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( -10, -65, 65, 10, -10, 10 )
 
 [node name="Node" type="Node"]
@@ -58,53 +48,11 @@ editor/display_folded = true
 position = Vector2( 1440, 360 )
 shape = SubResource( 2 )
 
-[node name="Slingshot" type="Sprite" parent="."]
-position = Vector2( 209.387, 542.315 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 2 )
+[node name="Bird1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 396.753, 301.119 )
 
-[node name="Bird1" type="KinematicBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 319.901, 316.241 )
-script = ExtResource( 3 )
-
-[node name="SingleBird" type="Sprite" parent="Bird1"]
-position = Vector2( -3, -5 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 88, 9, 75, 73 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird1"]
-shape = SubResource( 3 )
-
-[node name="Bird2" type="KinematicBody2D" parent="."]
-position = Vector2( 563.4, 360.165 )
-script = ExtResource( 3 )
-
-[node name="SingleBird" type="Sprite" parent="Bird2"]
-position = Vector2( -2.28357, -6.81494 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 596, 6, 74, 65 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird2"]
-position = Vector2( 2.25146, -3.38295 )
-shape = SubResource( 4 )
-
-[node name="Enemy1" type="KinematicBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 1037.64, 103.062 )
-script = ExtResource( 3 )
-
-[node name="SingleEnemy" type="Sprite" parent="Enemy1"]
-position = Vector2( 0.403687, -9.94583 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 984, 13, 76, 75 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1"]
-position = Vector2( 0.943726, -6.51382 )
-shape = SubResource( 5 )
+[node name="Slingshot" parent="." instance=ExtResource( 3 )]
+position = Vector2( 154.977, 551.551 )
 
 [node name="Block1" type="RigidBody2D" parent="."]
 editor/display_folded = true
@@ -112,13 +60,13 @@ position = Vector2( 844.175, 561.895 )
 
 [node name="SingleBlock" type="Sprite" parent="Block1"]
 position = Vector2( 4.93872, 2.58386 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 159, -1, 81, 80 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block1"]
 position = Vector2( 3.46863, 4.01587 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="Block2" type="RigidBody2D" parent="."]
 editor/display_folded = true
@@ -126,11 +74,11 @@ position = Vector2( 781.208, 251.654 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block2"]
 position = Vector2( 1.74536, 0.491455 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="SingleBlock" type="Sprite" parent="Block2"]
 position = Vector2( 3.20532, -0.940552 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 159, -1, 81, 80 )
 
@@ -140,13 +88,13 @@ position = Vector2( 841.774, 79.3612 )
 
 [node name="SingleBlock" type="Sprite" parent="Block3"]
 position = Vector2( 3.20532, -0.940552 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 394, 81, 73, 72 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block3"]
 position = Vector2( 1.74536, -1.50854 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="Block4" type="RigidBody2D" parent="."]
 editor/display_folded = true
@@ -154,24 +102,25 @@ position = Vector2( 736.316, -96.602 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block4"]
 position = Vector2( 1.74536, 0.491455 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="SingleBlock" type="Sprite" parent="Block4"]
 position = Vector2( 3.20532, -0.940552 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 159, -1, 81, 80 )
 
 [node name="Block5" type="RigidBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 532.316, -96.602 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block5"]
 position = Vector2( -73.5367, 35.2646 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="SingleBlock" type="Sprite" parent="Block5"]
 position = Vector2( -45.5488, 7.66312 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 79, 396, 81, 77 )
 

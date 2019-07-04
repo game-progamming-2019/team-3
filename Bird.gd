@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 var direction = Vector2()
 var velocity = Vector2()

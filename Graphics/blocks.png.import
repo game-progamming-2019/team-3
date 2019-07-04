@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slingshot_2.png-136dff65a196dafe943df273d2b5acd7.stex"
+path="res://.import/blocks.png-92ae678860e60969f686f238bd8ee099.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/slingshot_2.png"
-dest_files=[ "res://.import/slingshot_2.png-136dff65a196dafe943df273d2b5acd7.stex" ]
+source_file="res://Graphics/blocks.png"
+dest_files=[ "res://.import/blocks.png-92ae678860e60969f686f238bd8ee099.stex" ]
 
 [params]
 
