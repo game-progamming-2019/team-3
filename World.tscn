@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Graphics/background_1.jpg" type="Texture" id=1]
 [ext_resource path="res://Bird.tscn" type="PackedScene" id=2]
@@ -12,13 +12,7 @@ extents = Vector2( 960, 100 )
 extents = Vector2( 160, 360 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 37.9071, 38.4723 )
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 35.491
-
-[sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( -10, -65, 65, 10, -10, 10 )
+extents = Vector2( 39.9716, 39.3877 )
 
 [node name="Node" type="Node"]
 
@@ -56,71 +50,25 @@ position = Vector2( 154.977, 551.551 )
 
 [node name="Block1" type="RigidBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( 844.175, 561.895 )
+position = Vector2( 1110.48, 519.397 )
 
-[node name="SingleBlock" type="Sprite" parent="Block1"]
-position = Vector2( 4.93872, 2.58386 )
+[node name="Block" type="Sprite" parent="Block1"]
 texture = ExtResource( 4 )
 region_enabled = true
-region_rect = Rect2( 159, -1, 81, 80 )
+region_rect = Rect2( 160, 0, 80, 80 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block1"]
-position = Vector2( 3.46863, 4.01587 )
 shape = SubResource( 3 )
 
 [node name="Block2" type="RigidBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( 781.208, 251.654 )
+position = Vector2( 1048.9, 281.689 )
+
+[node name="Block" type="Sprite" parent="Block2"]
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 80, 80 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block2"]
-position = Vector2( 1.74536, 0.491455 )
 shape = SubResource( 3 )
-
-[node name="SingleBlock" type="Sprite" parent="Block2"]
-position = Vector2( 3.20532, -0.940552 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 159, -1, 81, 80 )
-
-[node name="Block3" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 841.774, 79.3612 )
-
-[node name="SingleBlock" type="Sprite" parent="Block3"]
-position = Vector2( 3.20532, -0.940552 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 394, 81, 73, 72 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block3"]
-position = Vector2( 1.74536, -1.50854 )
-shape = SubResource( 4 )
-
-[node name="Block4" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 736.316, -96.602 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block4"]
-position = Vector2( 1.74536, 0.491455 )
-shape = SubResource( 3 )
-
-[node name="SingleBlock" type="Sprite" parent="Block4"]
-position = Vector2( 3.20532, -0.940552 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 159, -1, 81, 80 )
-
-[node name="Block5" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 532.316, -96.602 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block5"]
-position = Vector2( -73.5367, 35.2646 )
-shape = SubResource( 5 )
-
-[node name="SingleBlock" type="Sprite" parent="Block5"]
-position = Vector2( -45.5488, 7.66312 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 79, 396, 81, 77 )
 
