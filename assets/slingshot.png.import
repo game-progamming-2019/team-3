@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/birds.png-50b280d397b36f25578bd7b680eb1673.stex"
+path="res://.import/slingshot.png-9749e84623b5740a03a5b3886774a894.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/birds.png"
-dest_files=[ "res://.import/birds.png-50b280d397b36f25578bd7b680eb1673.stex" ]
+source_file="res://assets/slingshot.png"
+dest_files=[ "res://.import/slingshot.png-9749e84623b5740a03a5b3886774a894.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spot.png-062fa25243ecdf978a31de4ddb25c919.stex"
+path="res://.import/elastic_tex.png-b8a4763924c461c92ad3c237ad5b62c6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/spot.png"
-dest_files=[ "res://.import/spot.png-062fa25243ecdf978a31de4ddb25c919.stex" ]
+source_file="res://assets/elastic_tex.png"
+dest_files=[ "res://.import/elastic_tex.png-b8a4763924c461c92ad3c237ad5b62c6.stex" ]
 
 [params]
 

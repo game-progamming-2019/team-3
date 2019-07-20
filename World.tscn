@@ -1,19 +1,17 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Graphics/background_1.jpg" type="Texture" id=1]
-[ext_resource path="res://Bird.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Slingshot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Graphics/blocks.png" type="Texture" id=4]
-[ext_resource path="res://Camera2D.gd" type="Script" id=5]
+[ext_resource path="res://assets/background_1.jpg" type="Texture" id=1]
+[ext_resource path="res://Slingshot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://scenes/birds/birds.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/blocks/blocks.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/enemies/enemies.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1600, 150 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 160, 720 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 39.9716, 39.3877 )
 
 [node name="Node" type="Node"]
 
@@ -39,34 +37,8 @@ shape = SubResource( 2 )
 position = Vector2( 2720, 720 )
 shape = SubResource( 2 )
 
-[node name="Bird1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 622.723, 934.225 )
-
-[node name="Slingshot" parent="." instance=ExtResource( 3 )]
+[node name="Slingshot" parent="." instance=ExtResource( 2 )]
 position = Vector2( 293.286, 1139.85 )
-
-[node name="Block1" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 1170.87, 739.523 )
-
-[node name="Block" type="Sprite" parent="Block1"]
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 160, 0, 80, 80 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block1"]
-shape = SubResource( 3 )
-
-[node name="Block2" type="RigidBody2D" parent="."]
-position = Vector2( 1122.93, 1109.6 )
-
-[node name="Block" type="Sprite" parent="Block2"]
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 80, 80 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block2"]
-shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 778.761, 869.594 )
@@ -74,5 +46,28 @@ current = true
 zoom = Vector2( 1.2, 1.2 )
 smoothing_enabled = true
 smoothing_speed = 10.0
-script = ExtResource( 5 )
+script = ExtResource( 3 )
 CAMERA_SPEED = 5
+
+[node name="Birds" type="Node2D" parent="."]
+
+[node name="Bird1" parent="Birds" instance=ExtResource( 4 )]
+position = Vector2( 631.061, 928.329 )
+
+[node name="Bird2" parent="Birds" instance=ExtResource( 4 )]
+position = Vector2( 957.744, 488.856 )
+
+[node name="Blocks" type="Node2D" parent="."]
+position = Vector2( 951.218, 1199.2 )
+
+[node name="Block1" parent="Blocks" instance=ExtResource( 5 )]
+position = Vector2( 106.991, 3.24219 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy1" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 636.613, 1191.8 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 951.218, 1199.2 )
+health = 5

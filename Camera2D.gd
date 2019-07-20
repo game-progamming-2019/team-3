@@ -3,6 +3,9 @@ extends Camera2D
 # Mittlere Maustaste gedrückt halten und ziehen  -> Mit der Kamera über die Map schweben
 # drag_cam unter Projekteinstellungen -> Input Map gesetzt
 
+# Mausrad Scrollen - Zoom in und out
+# zoom_in zoom_out - Input Map
+
 var drag_cam = false
 var old_mouse_pos
 
