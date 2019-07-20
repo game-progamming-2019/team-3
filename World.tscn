@@ -75,4 +75,4 @@ zoom = Vector2( 1.2, 1.2 )
 smoothing_enabled = true
 smoothing_speed = 10.0
 script = ExtResource( 5 )
-
+CAMERA_SPEED = 5
