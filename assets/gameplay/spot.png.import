@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/smokes.png-6f76201b123feb2212fb1ee78acd6981.stex"
+path="res://.import/spot.png-205019f08589b819f08ac0c222f7acdf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/smokes.png"
-dest_files=[ "res://.import/smokes.png-6f76201b123feb2212fb1ee78acd6981.stex" ]
+source_file="res://assets/gameplay/spot.png"
+dest_files=[ "res://.import/spot.png-205019f08589b819f08ac0c222f7acdf.stex" ]
 
 [params]
 

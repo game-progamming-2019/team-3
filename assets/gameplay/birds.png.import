@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spot.png-61850f44b146466ea53b3662faa40a2d.stex"
+path="res://.import/birds.png-860e7a796d602b083e68787ebac84b33.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spot.png"
-dest_files=[ "res://.import/spot.png-61850f44b146466ea53b3662faa40a2d.stex" ]
+source_file="res://assets/gameplay/birds.png"
+dest_files=[ "res://.import/birds.png-860e7a796d602b083e68787ebac84b33.stex" ]
 
 [params]
 

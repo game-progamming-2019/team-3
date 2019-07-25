@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slingshot_2.png-3c019e22b83fa8c4e45a75e2febfe696.stex"
+path="res://.import/spot_red.png-e6ddde1254068cc8b35b4ffffbed8de5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/slingshot_2.png"
-dest_files=[ "res://.import/slingshot_2.png-3c019e22b83fa8c4e45a75e2febfe696.stex" ]
+source_file="res://assets/gameplay/spot_red.png"
+dest_files=[ "res://.import/spot_red.png-e6ddde1254068cc8b35b4ffffbed8de5.stex" ]
 
 [params]
 

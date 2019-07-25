@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Damageable.gd" type="Script" id=1]
-[ext_resource path="res://assets/blocks.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Damageable.gd" type="Script" id=1]
+[ext_resource path="res://assets/gameplay/blocks.png" type="Texture" id=2]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 39.1107, 38.6344 )
