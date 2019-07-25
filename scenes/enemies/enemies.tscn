@@ -7,6 +7,8 @@
 radius = 33.2874
 
 [node name="Enemy" type="RigidBody2D"]
+contacts_reported = 7
+contact_monitor = true
 script = ExtResource( 1 )
 
 [node name="Texture" type="Sprite" parent="."]
