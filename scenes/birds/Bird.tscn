@@ -22,4 +22,5 @@ position = Vector2( 3, 5 )
 shape = SubResource( 1 )
 
 [node name="AttachPoint" type="Position2D" parent="."]
+position = Vector2( -30.5128, 11.6503 )
 [connection signal="body_entered" from="." to="." method="_on_Damageable_body_entered"]
