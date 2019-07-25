@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/gameplay/background_1.jpg" type="Texture" id=1]
-[ext_resource path="res://Slingshot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Slingshot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://scenes/birds/Bird.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/blocks/blocks.tscn" type="PackedScene" id=5]
@@ -51,8 +51,8 @@ CAMERA_SPEED = 5
 
 [node name="Birds" type="Node2D" parent="."]
 
-[node name="Bird1" parent="Birds" instance=ExtResource( 4 )]
-position = Vector2( 631.061, 928.329 )
+[node name="Bird" parent="Birds" instance=ExtResource( 4 )]
+position = Vector2( 153.796, 1179.62 )
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2( 951.218, 1199.2 )

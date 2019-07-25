@@ -12,7 +12,7 @@ func update_elastics(elastic):
 	var middle = diff_pos / 2
 	var sprite = elastic.get_node("Sprite")
 	sprite.position = middle
-	sprite.scale.x = middle.lenght()
+	sprite.scale.x = middle.length()
 	
 func attach_bird(bird):
 	self.bird = bird
