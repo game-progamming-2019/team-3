@@ -16,3 +16,6 @@ func update_elastics(elastic):
 	
 func attach_bird(bird):
 	self.bird = bird
+	
+func detach_bird():
+	self.bird = null

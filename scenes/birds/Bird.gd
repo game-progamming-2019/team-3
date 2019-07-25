@@ -34,7 +34,7 @@ func _integrate_forces(s):
 			if diff_pos.length() < TRANSFER_SPEED:
 				lv = diff_pos * delta
 				state = STATE_ATTACHED
-				slingshot.attach_bird(bird)
+				slingshot.attach_bird(self)
 			else:
 				lv = diff_pos.normalized() * TRANSFER_SPEED * delta
 		STATE_ATTACHED:
