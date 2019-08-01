@@ -7,6 +7,7 @@ extends RigidBody2D
 export(int, 1, 1000) var health = 10
 var processed_velocity = Vector2()
 var processed_angular_velocity = Vector2()
+onready var max_health = health
 
 func _physics_process(delta):
 	self.processed_velocity = self.linear_velocity
@@ -45,3 +46,8 @@ func get_damage(damage):
 		
 		if self.health <= 0:
 			queue_free()
+			
+func update_animation():
+	var h_ratio = float(health) / float(max_health)
+	var current_animation_index = ceil(h_ratio * $AnimationPlayer.get_animation_list().size()) - 1
+	$AnimationPlayer.play($AnimationPlayer.get_animation_list()[current_animation_index])
