@@ -56,21 +56,31 @@ CAMERA_SPEED = 5
 [node name="Bird" parent="Birds" instance=ExtResource( 5 )]
 position = Vector2( 153.796, 1179.62 )
 can_sleep = false
-health = 20
+health = 40
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2( 951.218, 1199.2 )
 
 [node name="Block1" parent="Blocks" instance=ExtResource( 6 )]
-position = Vector2( 283.813, -6.49792 )
+position = Vector2( 286.196, 7.00745 )
+contacts_reported = 7
+contact_monitor = true
+
+[node name="Block2" parent="Blocks" instance=ExtResource( 6 )]
+position = Vector2( 286.369, -70.4729 )
+contacts_reported = 7
+contact_monitor = true
+
+[node name="Block3" parent="Blocks" instance=ExtResource( 6 )]
+position = Vector2( 366.559, 5.42163 )
 contacts_reported = 7
 contact_monitor = true
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 636.613, 1191.8 )
+position = Vector2( 630.885, 1200.39 )
 health = 5
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 1129.89, 1187.08 )
+position = Vector2( 1235.95, 1049.25 )
