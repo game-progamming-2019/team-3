@@ -31,12 +31,6 @@ func _process(delta):
 		var mouse_move = old_mouse_pos - mouse_pos
 		position = position + mouse_move
 		old_mouse_pos = mouse_pos
-		
-func clamp_position(pos):
-	var viewport_radius = get_viewport_rect().size / 2 * zoom
-	pos.x = clamp(pos.x, limit_left + viewport_radius.x, limit_right - viewport_radius.x)
-	pos.y = clamp(pos.y, limit_left + viewport_radius.y, limit_right - viewport_radius.y)
-	return pos
 	
 func _input(event):
 	var z = zoom.x

@@ -1,5 +1,6 @@
 extends "res://scenes/Damageable.gd"
 
+# Definition Status von Bird
 enum {
 	STATE_IDLE,
 	STATE_TRANSFERED,
@@ -13,9 +14,11 @@ var state = STATE_IDLE
 var impulse = null
 var slingshot = null
 
+# Geschwindigkeit von Bird zu Slingshot
 export(int, 1, 10) var TRANSFER_SPEED = 5
 
 func _integrate_forces(s):
+	# Damageable - integrate forces
 	._integrate_forces(s)
 	if s.get_contact_count() > 0 and state == STATE_LAUNCHED:
 		state = STATE_IDLE
@@ -30,6 +33,7 @@ func _integrate_forces(s):
 	
 	# IMPLEMENT STATES
 	match state:
+		# Bird nach Slingshot bewegen
 		STATE_TRANSFERED:
 			if diff_pos.length() < TRANSFER_SPEED:
 				lv = diff_pos * delta
@@ -37,9 +41,11 @@ func _integrate_forces(s):
 				slingshot.attach_bird(self)
 			else:
 				lv = diff_pos.normalized() * TRANSFER_SPEED * delta
+		# Bird bleibt an Slingshot kleben
 		STATE_ATTACHED:
 			lv = diff_pos * delta * 0.3
 			av = -rotation * delta
+		# Bird per linker Maustaste bewegen
 		STATE_DRAGGED:
 			var player_force = get_global_mouse_position() - launch_pos
 			var angle = diff_pos.angle()
@@ -49,12 +55,14 @@ func _integrate_forces(s):
 			else:
 				player_force = player_force.clamped(100)
 			lv = (player_force + diff_pos) * 0.3 * delta
+		# Physik bei loslassen der linken Maustaste
 		STATE_RELEASED:
 			if diff_pos.length() < impulse.length():
 				state = STATE_LAUNCHED
 				slingshot.detach_bird()
 			else:
 				lv = impulse * delta
+		# Rotation Bird im Flug
 		STATE_LAUNCHED:
 			av = (lv.angle() - rotation) * delta
 			
