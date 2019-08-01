@@ -26,7 +26,7 @@ func _integrate_forces(s):
 	var diff_pos = launch_pos - get_global_position()
 	if Input.is_action_just_released("touch") and state == STATE_DRAGGED:
 		# Geschwindigkeit von Bird bei Abschuss - Impulse - Faktor 0.6 ganz schnell - 0.06 langsamer
-		impulse = diff_pos * 0.06
+		impulse = diff_pos * 0.17
 		# Klappt noch nicht
 		#impulse = slingshot.get_impulse()
 		#print(impulse)
@@ -58,7 +58,7 @@ func _integrate_forces(s):
 				player_force = player_force.clamped(10)
 			else:
 				# Weite des Aufzugs der Slingshot
-				player_force = player_force.clamped(150)
+				player_force = player_force.clamped(100)
 			lv = (player_force + diff_pos) * 0.3 * delta
 		# Physik bei loslassen der linken Maustaste
 		STATE_RELEASED:

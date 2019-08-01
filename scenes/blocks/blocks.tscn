@@ -3,13 +3,12 @@
 [ext_resource path="res://scenes/Damageable.gd" type="Script" id=1]
 [ext_resource path="res://assets/gameplay/blocks.png" type="Texture" id=2]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 39.1107, 38.6344 )
 
 [node name="Block" type="RigidBody2D"]
 script = ExtResource( 1 )
+health = 5
 
 [node name="blocks" type="Sprite" parent="."]
 texture = ExtResource( 2 )

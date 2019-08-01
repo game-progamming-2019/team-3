@@ -34,12 +34,17 @@ func _integrate_forces(state):
 		var p = v.dot(state.get_contact_local_normal(i)) * (m_contact / (m_self + m_contact))
 		get_damage(p * 0.05)
 	
+func _on_Damageable_body_entered():
+	pass
+	
 func get_damage(damage):
 	# Damage von Health abziehen und ggf Element loeschen
 	damage = round(damage)
 	if damage > 0:
 		# Damage in der Konsole loggen
 		print("damage: ", damage)
+		print("health: ", self.health)
 		self.health -= damage
 		if self.health <= 0:
 			queue_free()
+

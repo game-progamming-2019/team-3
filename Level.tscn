@@ -41,7 +41,6 @@ shape = SubResource( 2 )
 
 [node name="Slingshot" parent="." instance=ExtResource( 3 )]
 position = Vector2( 293.286, 1139.85 )
-STRENGTH = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 778.761, 869.594 )
@@ -63,7 +62,7 @@ position = Vector2( 951.218, 1199.2 )
 
 [node name="Block1" parent="Blocks" instance=ExtResource( 6 )]
 position = Vector2( 283.813, -6.49792 )
-health = 5
+contact_monitor = true
 
 [node name="Enemies" type="Node2D" parent="."]
 
