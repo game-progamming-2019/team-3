@@ -15,7 +15,7 @@ var impulse = null
 var slingshot = null
 
 # Geschwindigkeit von Bird zu Slingshot
-export(int, 1, 10) var TRANSFER_SPEED = 5
+export(int, 60, 600) var TRANSFER_SPEED = 300
 
 func _integrate_forces(s):
 	# Damageable - integrate forces
@@ -25,7 +25,11 @@ func _integrate_forces(s):
 	var launch_pos = slingshot.get_node("LaunchPoint").get_global_position()
 	var diff_pos = launch_pos - get_global_position()
 	if Input.is_action_just_released("touch") and state == STATE_DRAGGED:
+		# Geschwindigkeit von Bird bei Abschuss - Impulse - Faktor 0.6 ganz schnell - 0.06 langsamer
 		impulse = diff_pos * 0.06
+		# Klappt noch nicht
+		#impulse = slingshot.get_impulse()
+		#print(impulse)
 		state = STATE_RELEASED if impulse.x > 0 else STATE_ATTACHED
 	var lv = s.get_linear_velocity()
 	var av = s.get_angular_velocity()
@@ -53,7 +57,8 @@ func _integrate_forces(s):
 			if angle < -1.2 and angle > -2:
 				player_force = player_force.clamped(10)
 			else:
-				player_force = player_force.clamped(100)
+				# Weite des Aufzugs der Slingshot
+				player_force = player_force.clamped(150)
 			lv = (player_force + diff_pos) * 0.3 * delta
 		# Physik bei loslassen der linken Maustaste
 		STATE_RELEASED:
