@@ -45,6 +45,8 @@ func get_damage(damage):
 		print("damage: ", damage)
 		print("health: ", self.health)
 		
+		update_animation()
+		
 		if self.health <= 0:
 			# Animation Explosion von Enemy
 			var explosion = explosion_scene.instance()
@@ -52,8 +54,14 @@ func get_damage(damage):
 			get_parent().add_child(explosion)
 			queue_free()
 	
+# Animation von Bird / LittleGreen
+# 1_weak Augen oeffnen und schliessen permanent
 func update_animation():
-	if $AnimationPlayer.get_animation_list().size() > 0:
-		var h_ratio = float(health) / float(max_health)
-		var current_animation_index = ceil(h_ratio * $AnimationPlayer.get_animation_list().size()) - 1
-		$AnimationPlayer.play($AnimationPlayer.get_animation_list()[current_animation_index])
+	if $AnimationPlayer:
+		print("if")
+		if $AnimationPlayer.get_animation_list().size() > 0:
+			var h_ratio = float(health) / float(max_health)
+			var current_animation_index = ceil(h_ratio * $AnimationPlayer.get_animation_list().size()) - 1
+			$AnimationPlayer.play($AnimationPlayer.get_animation_list()[current_animation_index])
+	else:
+		print("else")
