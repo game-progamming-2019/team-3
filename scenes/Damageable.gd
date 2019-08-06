@@ -5,6 +5,7 @@ extends RigidBody2D
 
 # health variable fuer jedes einzelne Element
 export(int, 1, 1000) var health = 10
+export(PackedScene) var explosion_scene: PackedScene = preload("res://scenes/Explosion.tscn")
 var processed_velocity = Vector2()
 var processed_angular_velocity = Vector2()
 onready var max_health = health
@@ -45,9 +46,14 @@ func get_damage(damage):
 		print("health: ", self.health)
 		
 		if self.health <= 0:
+			# Animation Explosion von Enemy
+			var explosion = explosion_scene.instance()
+			explosion.position = position
+			get_parent().add_child(explosion)
 			queue_free()
-			
+	
 func update_animation():
-	var h_ratio = float(health) / float(max_health)
-	var current_animation_index = ceil(h_ratio * $AnimationPlayer.get_animation_list().size()) - 1
-	$AnimationPlayer.play($AnimationPlayer.get_animation_list()[current_animation_index])
+	if $AnimationPlayer.get_animation_list().size() > 0:
+		var h_ratio = float(health) / float(max_health)
+		var current_animation_index = ceil(h_ratio * $AnimationPlayer.get_animation_list().size()) - 1
+		$AnimationPlayer.play($AnimationPlayer.get_animation_list()[current_animation_index])
