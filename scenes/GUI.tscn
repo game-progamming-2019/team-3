@@ -8,17 +8,17 @@
 [node name="GUI" type="CanvasLayer"]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_left = 820.0
+margin_left = 830.0
 margin_top = 20.0
-margin_right = 1260.0
+margin_right = 1250.0
 margin_bottom = 150.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 440.0
+margin_right = 420.0
 margin_bottom = 130.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer"]
-margin_right = 440.0
+margin_right = 420.0
 margin_bottom = 67.0
 size_flags_vertical = 3
 texture = ExtResource( 1 )
@@ -48,10 +48,10 @@ texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 
 [node name="HBoxRight" type="HBoxContainer" parent="MarginContainer/VBoxContainer/NinePatchRect"]
-margin_left = 367.678
-margin_top = 11.7615
-margin_right = 428.678
-margin_bottom = 51.7615
+margin_left = 344.357
+margin_top = 12.3303
+margin_right = 405.357
+margin_bottom = 52.3303
 
 [node name="ScoreValue" type="Label" parent="MarginContainer/VBoxContainer/NinePatchRect/HBoxRight"]
 margin_top = 13.0
@@ -74,9 +74,9 @@ margin_bottom = 27.0
 text = "10000"
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-margin_left = 382.0
+margin_left = 362.0
 margin_top = 71.0
-margin_right = 440.0
+margin_right = 420.0
 margin_bottom = 130.0
 size_flags_horizontal = 8
 texture_normal = ExtResource( 4 )

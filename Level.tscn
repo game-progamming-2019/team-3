@@ -76,6 +76,11 @@ position = Vector2( 366.559, 5.42163 )
 contacts_reported = 7
 contact_monitor = true
 
+[node name="Block4" parent="Blocks" instance=ExtResource( 6 )]
+position = Vector2( 411.654, -74.7473 )
+contacts_reported = 7
+contact_monitor = true
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="LittleGreen" parent="Enemies" instance=ExtResource( 7 )]

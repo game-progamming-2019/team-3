@@ -4,18 +4,22 @@ extends RigidBody2D
 # welche eine Lebensanzeige besitzen und zerstoert werden koennen
 
 # health variable fuer jedes einzelne Element
+# Kann manuell im Level fuer jedes Objekt angepasst werden, da Export Variable
 export(int, 1, 1000) var health = 10
+# Explosion Szene laden wenn Health < 0
 export(PackedScene) var explosion_scene: PackedScene = preload("res://scenes/Explosion.tscn")
 var processed_velocity = Vector2()
 var processed_angular_velocity = Vector2()
 onready var max_health = health
 
+# Beeinflusst Physic
 func _physics_process(delta):
 	self.processed_velocity = self.linear_velocity
 	self.processed_angular_velocity = self.processed_angular_velocity
 	
-# Kontakte von Bird mit anderen Objekten
+# Zugriff auf Physics2DDirectBodyState - angular_velocity Funktionen
 func _integrate_forces(state):
+	# Kontakte von Bird mit anderen Objekten
 	var contact_counts = {}
 	for i in range(0, state.get_contact_count()):
 		var contact_id = state.get_contact_collider_id(i)
@@ -45,21 +49,30 @@ func get_damage(damage):
 		print("damage: ", damage)
 		print("health: ", self.health)
 		
+		# Animation aktualisieren, da Lebensanzeige sich aendert
+		# Bird bekommt blaues Auge - andere Animation
 		update_animation()
 		
+		# Wenn Leben aufgebraucht
 		if self.health <= 0:
-			# Animation Explosion von Enemy
+			# Objekt explodieren lassen durch Animation
 			var explosion = explosion_scene.instance()
 			explosion.position = position
 			get_parent().add_child(explosion)
+			# Objekt loeschen
 			queue_free()
 	
 # Animation von Bird / LittleGreen
-# 1_weak Augen oeffnen und schliessen permanent
+# 1_weak - Zwei Augen blau
+# 2_average - Ein Auge blau
+# 3_healthy - Kein Auge blau
 func update_animation():
+	# ggf Elemente in Szene, die nicht animiert sind
 	if $AnimationPlayer:
 		print("if")
 		if $AnimationPlayer.get_animation_list().size() > 0:
+			# Health Rate berechnen - 0.2
 			var h_ratio = float(health) / float(max_health)
+			# Ceil aufrunden - Floor abrunden
 			var current_animation_index = ceil(h_ratio * $AnimationPlayer.get_animation_list().size()) - 1
 			$AnimationPlayer.play($AnimationPlayer.get_animation_list()[current_animation_index])
