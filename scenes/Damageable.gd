@@ -63,5 +63,3 @@ func update_animation():
 			var h_ratio = float(health) / float(max_health)
 			var current_animation_index = ceil(h_ratio * $AnimationPlayer.get_animation_list().size()) - 1
 			$AnimationPlayer.play($AnimationPlayer.get_animation_list()[current_animation_index])
-	else:
-		print("else")

@@ -66,6 +66,7 @@ func _integrate_forces(s):
 				state = STATE_LAUNCHED
 				slingshot.detach_bird()
 			else:
+				# Flugbewegung / Geschwindigkeit
 				lv = impulse * delta
 		# Rotation Bird im Flug
 		STATE_LAUNCHED:
