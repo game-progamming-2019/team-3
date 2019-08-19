@@ -6,7 +6,7 @@
 [ext_resource path="res://Camera2D.gd" type="Script" id=4]
 [ext_resource path="res://scenes/birds/Chuck.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/blocks/Stein.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/enemies/LittleGreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/enemies/BigCrown.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -61,17 +61,15 @@ position = Vector2( 168.776, 1126.93 )
 position = Vector2( 951.218, 1199.2 )
 
 [node name="Block" parent="Blocks" instance=ExtResource( 6 )]
-position = Vector2( 218.206, -68.0928 )
+position = Vector2( 150.206, 6.90696 )
 
 [node name="Block2" parent="Blocks" instance=ExtResource( 6 )]
 position = Vector2( 231.36, 9.2854 )
 
-[node name="Block3" parent="Blocks" instance=ExtResource( 6 )]
-position = Vector2( 318.798, 7.73779 )
-
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="LittleGreen2" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 1246.41, 1130.23 )
+[node name="BigCrown" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 1301.87, 1160.4 )
+health = 20
 
 [node name="GUI" parent="." instance=ExtResource( 8 )]

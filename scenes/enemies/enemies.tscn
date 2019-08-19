@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/gameplay/birds.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 33.2874
+radius = 32.7971
 
 [node name="Enemy" type="RigidBody2D"]
 contacts_reported = 7
@@ -17,5 +17,5 @@ region_enabled = true
 region_rect = Rect2( 980, 10, 80, 80 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3, 5 )
+position = Vector2( 0.411743, 5 )
 shape = SubResource( 1 )
