@@ -76,16 +76,13 @@ contacts_reported = 7
 contact_monitor = true
 
 [node name="Block4" parent="Blocks" instance=ExtResource( 6 )]
-position = Vector2( 286.462, -148.492 )
+position = Vector2( 322.056, -148.492 )
 contacts_reported = 7
 contact_monitor = true
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="LittleGreen" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 1328.34, 1208.65 )
-
-[node name="LittleGreen2" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 1305.99, 1146.48 )
+position = Vector2( 1324.76, 1206.19 )
 
 [node name="GUI" parent="." instance=ExtResource( 8 )]

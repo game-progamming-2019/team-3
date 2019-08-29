@@ -43,12 +43,6 @@ shape = SubResource( 2 )
 
 [node name="Slingshot" parent="." instance=ExtResource( 3 )]
 position = Vector2( 293.286, 1139.85 )
-TRAJECTORY_SPOT_COUNT = 10
-TRAJECTORY_TIME_STEP = 0.5
-STRENGTH = 5
-TRAJECTORY_IMPULSE = 75
-TRAJECTORY_ANGLE = 45
-TRAJECTORY_VISIBILITY = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 778.761, 869.594 )
@@ -91,11 +85,11 @@ contact_monitor = true
 
 [node name="LittleGreen" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 1073.03, 1199.1 )
-health = 40
+health = 12
 
 [node name="LittleGreen2" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 1148.98, 1124.24 )
-health = 30
+health = 12
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 1156.95, 1201.9 )

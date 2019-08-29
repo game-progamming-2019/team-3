@@ -1,10 +1,8 @@
 [gd_resource type="Animation" format=2]
 
 [resource]
-resource_name = "1_weak"
 length = 3.0
 loop = true
-step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Texture:region_rect")
 tracks/0/interp = 1
@@ -15,5 +13,5 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Rect2( 1448, 573, 156, 176 ), Rect2( 1603, 574, 158, 175 ), Rect2( 1448, 576, 158, 172 ) ]
+"values": [ Rect2( 1138, 574, 155, 175 ), Rect2( 982, 574, 156, 175 ), Rect2( 1138, 574, 156, 175 ) ]
 }
