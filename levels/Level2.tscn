@@ -9,7 +9,6 @@
 [ext_resource path="res://scenes/enemies/LittleGreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=8]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1600, 150 )
 
@@ -43,12 +42,6 @@ shape = SubResource( 2 )
 
 [node name="Slingshot" parent="." instance=ExtResource( 3 )]
 position = Vector2( 293.286, 1139.85 )
-TRAJECTORY_SPOT_COUNT = 10
-TRAJECTORY_TIME_STEP = 0.5
-STRENGTH = 5
-TRAJECTORY_IMPULSE = 75
-TRAJECTORY_ANGLE = 45
-TRAJECTORY_VISIBILITY = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 778.761, 869.594 )
@@ -71,13 +64,11 @@ position = Vector2( 951.218, 1199.2 )
 position = Vector2( 286.196, 7.00745 )
 contacts_reported = 7
 contact_monitor = true
-health = 8
 
 [node name="Block2" parent="Blocks" instance=ExtResource( 6 )]
 position = Vector2( 286.369, -70.4729 )
 contacts_reported = 7
 contact_monitor = true
-health = 8
 
 [node name="Block3" parent="Blocks" instance=ExtResource( 6 )]
 position = Vector2( 452.705, 5.42163 )
@@ -88,7 +79,6 @@ contact_monitor = true
 position = Vector2( 286.462, -148.492 )
 contacts_reported = 7
 contact_monitor = true
-health = 8
 
 [node name="Enemies" type="Node2D" parent="."]
 
