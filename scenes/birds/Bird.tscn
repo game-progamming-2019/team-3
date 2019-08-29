@@ -7,8 +7,8 @@
 radius = 31.1279
 
 [node name="Bird" type="RigidBody2D" groups=[
-"Bird",
 "Damageable",
+"Bird",
 ]]
 input_pickable = true
 contacts_reported = 7
@@ -16,6 +16,7 @@ contact_monitor = true
 linear_damp = 0.0
 script = ExtResource( 1 )
 survive_points = 2000
+TRANSFER_SPEED = 200
 
 [node name="Texture" type="Sprite" parent="."]
 texture = ExtResource( 2 )

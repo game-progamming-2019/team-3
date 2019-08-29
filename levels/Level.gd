@@ -19,10 +19,10 @@ func _ready():
 	
 	alive_birds = get_tree().get_nodes_in_group("Bird")
 	
-	#var current_bird = change_bird()
-	change_bird()
+	var current_bird = change_bird()
+	#change_bird()
 	
-	#max_score -= current_bird.survive_points
+	max_score -= current_bird.survive_points
 	
 	$GUI.set_max_score(max_score)
 
@@ -41,6 +41,7 @@ func _on_Bird_eliminated(bird):
 		prepare_end()
 		
 func change_bird():
+	print("change bird")
 	if alive_birds.size() == 0:
 		return null
 	var current_bird = alive_birds.pop_front()

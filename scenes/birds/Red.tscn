@@ -7,8 +7,8 @@
 radius = 31.1279
 
 [node name="Bird" type="RigidBody2D" groups=[
-"Bird",
 "Damageable",
+"Bird",
 ]]
 input_pickable = true
 contacts_reported = 7
