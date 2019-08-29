@@ -3,6 +3,7 @@ extends Node
 var max_score = 0
 var score = 0
 var alive_birds
+var game_ended = false
 
 # Level testen - Szene - Rechtsklick - Diese Szene abspielen
 
@@ -10,7 +11,6 @@ var alive_birds
 # Darf nur einen Bird geben
 # Name muss Birds -> Bird sein
 func _ready():
-	$Birds/Bird.attach_to($Slingshot)
 	
 	for damageable in get_tree().get_nodes_in_group("Damageable"):
 		damageable.connect("exploded", self, "_on_Damageable_exploded")
@@ -19,7 +19,10 @@ func _ready():
 	
 	alive_birds = get_tree().get_nodes_in_group("Bird")
 	
+	#var current_bird = change_bird()
 	change_bird()
+	
+	#max_score -= current_bird.survive_points
 	
 	$GUI.set_max_score(max_score)
 
@@ -47,3 +50,17 @@ func change_bird():
 
 func prepare_end():
 	$GUI.display_end_button()
+
+func end_game():
+	if game_ended:
+		return
+	game_ended = true
+	while alive_birds.size() > 0:
+		var bird = alive_birds.pop_front()
+		score += bird.survive_points
+		bird.explode(false)
+	$GUI.set_score(score)
+
+func _on_GUI_end_game():
+	end_game()
+	

@@ -24,8 +24,11 @@ func _integrate_forces(s):
 	# Damageable - integrate forces
 	._integrate_forces(s)
 	
-	if state == STATE_TOUCHED and self.processed_velocity.length() < 2:
-		emit_signal("eliminated")
+	#print(self.processed_velocity.length())
+	#if state == STATE_TOUCHED and self.processed_velocity.length() < 100:
+	if state == STATE_TOUCHED:
+		print("eliminated signal")
+		emit_signal("eliminated", self)
 		state = STATE_IDLE
 		
 	if state == STATE_IDLE:
@@ -33,6 +36,7 @@ func _integrate_forces(s):
 	
 	if s.get_contact_count() > 0 and state == STATE_LAUNCHED:
 		state = STATE_TOUCHED
+		print("launched")
 	
 	var launch_pos = slingshot.get_node("LaunchPoint").get_global_position()
 	var diff_pos = launch_pos - get_global_position()
