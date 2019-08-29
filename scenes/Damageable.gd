@@ -8,9 +8,13 @@ extends RigidBody2D
 export(int, 1, 1000) var health = 10
 # Explosion Szene laden wenn Health < 0
 export(PackedScene) var explosion_scene: PackedScene = preload("res://scenes/Explosion.tscn")
+export(int, 0, 100000) var destroy_points = 500
+export(int, 0, 100000) var survive_points = 0
 var processed_velocity = Vector2()
 var processed_angular_velocity = Vector2()
 onready var max_health = health
+
+signal exploded
 
 # Beeinflusst Physic
 func _physics_process(delta):
@@ -55,12 +59,7 @@ func get_damage(damage):
 		
 		# Wenn Leben aufgebraucht
 		if self.health <= 0:
-			# Objekt explodieren lassen durch Animation
-			var explosion = explosion_scene.instance()
-			explosion.position = position
-			get_parent().add_child(explosion)
-			# Objekt loeschen
-			queue_free()
+			explode()
 	
 # Animation von Bird / LittleGreen
 # 1_weak - Zwei Augen blau
@@ -76,3 +75,12 @@ func update_animation():
 			# Ceil aufrunden - Floor abrunden
 			var current_animation_index = ceil(h_ratio * $AnimationPlayer.get_animation_list().size()) - 1
 			$AnimationPlayer.play($AnimationPlayer.get_animation_list()[current_animation_index])
+
+func explode():
+	# Objekt explodieren lassen durch Animation
+	var explosion = explosion_scene.instance()
+	explosion.position = position
+	get_parent().add_child(explosion)
+	emit_signal("exploded", self)
+	# Objekt loeschen
+	queue_free()

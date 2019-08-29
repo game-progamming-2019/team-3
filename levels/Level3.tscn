@@ -70,6 +70,6 @@ position = Vector2( 231.36, 9.2854 )
 
 [node name="BigCrown" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 1301.87, 1160.4 )
-health = 20
+health = 15
 
 [node name="GUI" parent="." instance=ExtResource( 8 )]

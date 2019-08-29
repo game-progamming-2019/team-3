@@ -6,7 +6,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.7971
 
-[node name="Enemy" type="RigidBody2D"]
+[node name="Enemy" type="RigidBody2D" groups=[
+"Damageable",
+]]
 contacts_reported = 7
 contact_monitor = true
 script = ExtResource( 1 )

@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 39.1107, 38.6344 )
 
-[node name="Block" type="RigidBody2D"]
+[node name="Block" type="RigidBody2D" groups=[
+"Damageable",
+]]
 script = ExtResource( 1 )
 
 [node name="blocks" type="Sprite" parent="."]

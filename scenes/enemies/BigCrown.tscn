@@ -25,7 +25,9 @@ tracks/0/keys = {
 
 [node name="BigCrown" instance=ExtResource( 1 )]
 
-[node name="Texture" parent="." index="0"]
+[node name="Texture" parent="." index="0" groups=[
+"Damageable",
+]]
 region_rect = Rect2( 1138, 574, 156, 175 )
 
 [node name="CollisionShape2D" parent="." index="1"]

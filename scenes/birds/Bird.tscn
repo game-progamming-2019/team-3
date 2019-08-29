@@ -6,12 +6,15 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 31.1279
 
-[node name="Bird" type="RigidBody2D"]
+[node name="Bird" type="RigidBody2D" groups=[
+"Damageable",
+]]
 input_pickable = true
 contacts_reported = 7
 contact_monitor = true
 linear_damp = 0.0
 script = ExtResource( 1 )
+survive_points = 2000
 
 [node name="Texture" type="Sprite" parent="."]
 texture = ExtResource( 2 )
