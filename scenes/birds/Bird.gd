@@ -7,7 +7,8 @@ enum {
 	STATE_ATTACHED,
 	STATE_DRAGGED,
 	STATE_RELEASED,
-	STATE_LAUNCHED
+	STATE_LAUNCHED,
+	STATE_TOUCHED
 }
 
 var state = STATE_IDLE
@@ -17,11 +18,22 @@ var slingshot = null
 # Geschwindigkeit von Bird zu Slingshot
 export(int, 60, 600) var TRANSFER_SPEED = 300
 
+signal eliminated
+
 func _integrate_forces(s):
 	# Damageable - integrate forces
 	._integrate_forces(s)
-	if s.get_contact_count() > 0 and state == STATE_LAUNCHED:
+	
+	if state == STATE_TOUCHED and self.processed_velocity.length() < 2:
+		emit_signal("eliminated")
 		state = STATE_IDLE
+		
+	if state == STATE_IDLE:
+		return
+	
+	if s.get_contact_count() > 0 and state == STATE_LAUNCHED:
+		state = STATE_TOUCHED
+	
 	var launch_pos = slingshot.get_node("LaunchPoint").get_global_position()
 	var diff_pos = launch_pos - get_global_position()
 	if Input.is_action_just_released("touch") and state == STATE_DRAGGED:

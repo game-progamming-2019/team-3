@@ -8,6 +8,7 @@ radius = 32.7971
 
 [node name="Enemy" type="RigidBody2D" groups=[
 "Damageable",
+"Ennemy",
 ]]
 contacts_reported = 7
 contact_monitor = true

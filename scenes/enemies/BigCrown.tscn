@@ -27,6 +27,7 @@ tracks/0/keys = {
 
 [node name="Texture" parent="." index="0" groups=[
 "Damageable",
+"Ennemy",
 ]]
 region_rect = Rect2( 1138, 574, 156, 175 )
 

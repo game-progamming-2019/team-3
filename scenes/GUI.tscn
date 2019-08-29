@@ -75,7 +75,7 @@ margin_right = 61.0
 margin_bottom = 27.0
 text = "10000"
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="EndButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 margin_left = 362.0
 margin_top = 71.0
 margin_right = 420.0

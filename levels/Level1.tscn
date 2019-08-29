@@ -58,6 +58,9 @@ CAMERA_SPEED = 5
 [node name="Bird" parent="Birds" instance=ExtResource( 5 )]
 position = Vector2( 168.689, 1088.96 )
 
+[node name="Bird2" parent="Birds" instance=ExtResource( 5 )]
+position = Vector2( 68.4509, 1184.9 )
+
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2( 951.218, 1199.2 )
 
